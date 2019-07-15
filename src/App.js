@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom"
 import Header from './components/Header'
 import Footer from './components/Footer'
 import About from './components/About'
-import ProjectContent from './components/ProjectContent'
+import ProjectContent, {projects} from './components/ProjectContent'
 import './bootstrap.min.css'
 
 const about = {
@@ -25,28 +25,6 @@ export default class App extends Component {
 	}
 
 	componentDidMount() {
-		const projects = [{
-			id: 1,
-			visibleDescription: 'enlaces',
-			title: 'Enlaces'
-		}, {
-			id: 2,
-			visibleDescription: 'historias-anonimas',
-			title: 'Historias anónimas'
-		}, {
-			id: 3,
-			visibleDescription: 'roque-perez',
-			title: 'Roque Perez'
-		}, {
-			id: 4,
-			visibleDescription: '80',
-			title: '80%'
-		}, {
-			id: 5,
-			visibleDescription: 'la-caja',
-			title: 'La caja'
-		}]
-
 		this.setState({
 			projects,
 			about
@@ -74,7 +52,7 @@ export default class App extends Component {
 									key={item.id}
 									path={`/${item.visibleDescription}`}
 									exact
-									render={() => <ProjectContent project={item} />}
+									render={(routeProps) => <ProjectContent {...routeProps} {...item} />}
 								/>
 							))}
 
