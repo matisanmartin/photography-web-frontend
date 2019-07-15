@@ -2,6 +2,8 @@ import React from 'react'
 import SidebarItem from './SidebarItem';
 
 const about = {
+    id: '0',
+    visibleDescription: 'about',
     title: 'About'
 }
 const Sidebar = ({items}) => {
@@ -16,10 +18,10 @@ const Sidebar = ({items}) => {
             ))}
 
             <SidebarItem 
-                key="about"
+                key={about.id}
                 item={about}
             />
-            
+
         </div>
     )
 }

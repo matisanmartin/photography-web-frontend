@@ -5,6 +5,7 @@ import SidebarContainer from './components/SidebarContainer'
 import './bootstrap.min.css'
 
 export default class App extends Component {
+  
   state = {
     projects: [],
     about: {}
@@ -13,18 +14,23 @@ export default class App extends Component {
   componentDidMount() {
     const projects = [{
       id: 1,
+      visibleDescription: 'enlaces',
       title: 'Enlaces'
     }, {
       id: 2,
+      visibleDescription: 'historias-anonimas',
       title: 'Historias anónimas'
     }, {
       id: 3,
+      visibleDescription: 'roque-perez',
       title: 'Roque Perez'
     },{
       id: 4,
+      visibleDescription: '80',
       title: '80%' 
     },{
       id: 5,
+      visibleDescription: 'la-caja',
       title: 'La caja'
     }]
 
@@ -55,7 +61,7 @@ export default class App extends Component {
         </div>
         
         <Footer className="row"/>
-        
+
       </div>
     )
   }
