@@ -1,5 +1,7 @@
 //import React from 'react'
 import React, { Component } from 'react'
+import AliceCarousel from 'react-alice-carousel'
+import "react-alice-carousel/lib/alice-carousel.css"
 
 export const projects = [{
     id: 1,
@@ -22,6 +24,35 @@ export const projects = [{
     visibleDescription: 'la-caja',
     title: 'La caja'
 }]
+
+export const itemsTest = [{
+    src: 'https://picsum.photos/id/599/200/200'
+}, {
+    src: 'https://picsum.photos/id/476/200/200'
+}, {
+    src: 'https://picsum.photos/id/476/200/200'
+}, {
+    src: 'https://picsum.photos/id/476/200/200'
+}, {
+    src: 'https://picsum.photos/id/476/200/200'
+}, {
+    src: 'https://picsum.photos/id/476/200/200'
+}, {
+    src: 'https://picsum.photos/id/476/200/200'
+}, {
+    src: 'https://picsum.photos/id/476/200/200'
+}, {
+    src: 'https://picsum.photos/id/476/200/200'
+}]
+
+const responsive = {
+    0: {
+        items: 1
+    },
+    1024: {
+        items: 6
+    }
+}
 
 export const projectsExpanded = [{
     id: 1,
@@ -53,7 +84,7 @@ export const projectsExpanded = [{
 class ProjectContent extends Component {
     constructor(props) {
         super(props)
-        this.state = {project: {}}
+        this.state = {project: {}, itemsTest: itemsTest}
     }
 
     componentDidMount() {
@@ -74,6 +105,15 @@ class ProjectContent extends Component {
             <div>
                 <h3>{this.state.title}</h3>
                 <p className="lead"><small>{this.state.description}</small></p>
+                <div class="col-md-12">
+                    <AliceCarousel
+                        responsive={responsive}
+                        dotsDisabled={true}>
+                        {this.state.itemsTest.map(item => (
+                            <img src={item.src} />
+                        ))}
+                    </AliceCarousel>
+                </div>
             </div>
         )
     }
