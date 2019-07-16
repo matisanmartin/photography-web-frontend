@@ -4,6 +4,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import About from './components/About'
 import ProjectContent, {projects} from './components/ProjectContent'
+import Contact from './components/Contact'
 import './bootstrap.min.css'
 
 const about = {
@@ -11,10 +12,15 @@ const about = {
 	visibleDescription: 'about',
 	title: 'About',
 	email: 'msanmartinacosta@gmail.com',
-	description: 'Photographer based in Buenos Aires, Argentina',
-	longDescription: 'Born February 15, 1989. Working as a software developer',
+	description: 'Fotografo y desarrollador de software. Buenos Aires, Argentina',
 	courses: JSON.parse('[{"school":"Santa Talleres","name":"Gracias por tanto, Photoshop","professors":"Julieta Pestarino","year":2019},{"school":"Santa Talleres","name":"Creadores de Imágenes","professors":"Julia Sbriller","year":"2019-act."},{"school":"Santa Talleres","name":"Colorimetría en Camera RAW","professors":"Ignacio Steinsleger","year":2019},{"school":"Santa Talleres","name":"Mirar, Editar, Contar","professors":"Iara Kremer","year":2019},{"school":"Santa Talleres","name":"Fotografía Analógica","professors":"Iara Kremer","year":2018},{"school":"","name":"Taller de desarrollo de proyecto","professors":"Leticia Sahagun","year":"2018-act."},{"school":"Motivarte","name":"Lenguajes Combinados","professors":"Leticia Sahagun","year":2018},{"school":"Motivarte","name":"Taller de Desarrollo Creativo y Autoral","professors":"Leticia Sahagun","year":2017},{"school":"Motivarte","name":"Iluminación","professors":"Anabella Reggiani & Martín Mercado","year":2017},{"school":"Motivarte","name":"Taller de Entrenamiento Visual","professors":"Laura Passoti & Sergio Otaño","year":2016},{"school":"Motivarte","name":"Curso Básico Integral","professors":"Sol Mendoza","year":2016}]'),
 	mentions: JSON.parse('[{"year": "2017", "event": "Muestra Cursos TFP 1°C 2017","description": "Ganador de media beca por muestra final de Curso de Iluminación"}, {"year": "2017", "event": "Muestra Cursos TFP 2°C 2017","description": "Ganador de media beca por muestra final de Curso de Desarrollo Creativo y Autoral"}]')
+}
+
+const contact = {
+	id: -1,
+	visibleDescription: 'contact',
+	title: 'Contact'
 }
 
 export default class App extends Component {
@@ -44,6 +50,7 @@ export default class App extends Component {
 							))}
 
 							<Link key={about.id} to={about.visibleDescription} className="list-group-item list-group-item-action border-0">{about.title}</Link>
+							<Link key={contact.id} to={contact.visibleDescription} className="list-group-item list-group-item-action border-0">{contact.title}</Link>
 						</div> {/* end sidebar */}
 
 						<div className="col-md-10"> {/* begin content */}
@@ -61,6 +68,13 @@ export default class App extends Component {
 								path={`/${about.visibleDescription}`}
 								exact
 								render={() => <About about={about} />}
+							/>
+
+							<Route
+								key={contact.id}
+								path={`/${contact.visibleDescription}`}
+								exact
+								render={() => <Contact />}
 							/>
 
 							<Footer/>
